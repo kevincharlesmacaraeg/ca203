@@ -1,7 +1,7 @@
 import './App.css';
 import kevinbg from "./img/kevinbg.jpg"
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
+import { useState, Fragment } from 'react'
+import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
@@ -116,78 +116,78 @@ function Hero() {
 }
 
 function AppCloud() {
-    return (
-      <div className="bg-black py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
-            <div className="mx-auto w-full max-w-xl lg:mx-0">
-              <h2 className="text-3xl font-bold tracking-tight text-white">Trusted by the most innovative teams</h2>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a
-                scelerisque amet ullamcorper eu enim et fermentum, augue.
-              </p>
-              <div className="mt-8 flex items-center gap-x-6">
-                <a
-                  href="#"
-                  className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                >
-                  Create account
-                </a>
-                <a href="#" className="text-sm font-semibold text-white">
-                  Contact us <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
+  return (
+    <div className="bg-black py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
+          <div className="mx-auto w-full max-w-xl lg:mx-0">
+            <h2 className="text-3xl font-bold tracking-tight text-white">Trusted by the most innovative teams</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-300">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a
+              scelerisque amet ullamcorper eu enim et fermentum, augue.
+            </p>
+            <div className="mt-8 flex items-center gap-x-6">
+              <a
+                href="#"
+                className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              >
+                Create account
+              </a>
+              <a href="#" className="text-sm font-semibold text-white">
+                Contact us <span aria-hidden="true">&rarr;</span>
+              </a>
             </div>
-            <div className="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
-              <img
-                className="max-h-12 w-full object-contain object-left"
-                src="https://tailwindui.com/img/logos/tuple-logo-white.svg"
-                alt="Tuple"
-                width={105}
-                height={48}
-              />
-              <img
-                className="max-h-12 w-full object-contain object-left"
-                src="https://tailwindui.com/img/logos/reform-logo-white.svg"
-                alt="Reform"
-                width={104}
-                height={48}
-              />
-              <img
-                className="max-h-12 w-full object-contain object-left"
-                src="https://tailwindui.com/img/logos/savvycal-logo-white.svg"
-                alt="SavvyCal"
-                width={140}
-                height={48}
-              />
-              <img
-                className="max-h-12 w-full object-contain object-left"
-                src="https://tailwindui.com/img/logos/laravel-logo-white.svg"
-                alt="Laravel"
-                width={136}
-                height={48}
-              />
-              <img
-                className="max-h-12 w-full object-contain object-left"
-                src="https://tailwindui.com/img/logos/transistor-logo-white.svg"
-                alt="Transistor"
-                width={158}
-                height={48}
-              />
-              <img
-                className="max-h-12 w-full object-contain object-left"
-                src="https://tailwindui.com/img/logos/statamic-logo-white.svg"
-                alt="Statamic"
-                width={147}
-                height={48}
-              />
-            </div>
+          </div>
+          <div className="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
+            <img
+              className="max-h-12 w-full object-contain object-left"
+              src="https://tailwindui.com/img/logos/tuple-logo-white.svg"
+              alt="Tuple"
+              width={105}
+              height={48}
+            />
+            <img
+              className="max-h-12 w-full object-contain object-left"
+              src="https://tailwindui.com/img/logos/reform-logo-white.svg"
+              alt="Reform"
+              width={104}
+              height={48}
+            />
+            <img
+              className="max-h-12 w-full object-contain object-left"
+              src="https://tailwindui.com/img/logos/savvycal-logo-white.svg"
+              alt="SavvyCal"
+              width={140}
+              height={48}
+            />
+            <img
+              className="max-h-12 w-full object-contain object-left"
+              src="https://tailwindui.com/img/logos/laravel-logo-white.svg"
+              alt="Laravel"
+              width={136}
+              height={48}
+            />
+            <img
+              className="max-h-12 w-full object-contain object-left"
+              src="https://tailwindui.com/img/logos/transistor-logo-white.svg"
+              alt="Transistor"
+              width={158}
+              height={48}
+            />
+            <img
+              className="max-h-12 w-full object-contain object-left"
+              src="https://tailwindui.com/img/logos/statamic-logo-white.svg"
+              alt="Statamic"
+              width={147}
+              height={48}
+            />
           </div>
         </div>
       </div>
-    )
+    </div>
+  )
 }
-  
+
 function Form() {
   return (
     <div className="relative isolate bg-white">
@@ -220,7 +220,7 @@ function Form() {
             </div>
             <h2 className="text-3xl font-bold tracking-tight text-gray-900">Creative Consultation</h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Review options for your next project 
+              Review options for your next project
             </p>
             <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600">
               <div className="flex gap-x-4">
@@ -349,16 +349,25 @@ function Form() {
 }
 
 
-function Homepage() {
-    return (
+function Homepage(props) {
+
+  return (
+    <transition
+      enter-active-class="transition-opacity duration-75"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition-opacity duration-150"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
       <div className="">
         <Hero />
         <AppCloud />
         <Form />
 
       </div>
-    );
-  }
-  
-  export default Homepage;
-  
+    </transition>
+  );
+}
+
+export default Homepage;

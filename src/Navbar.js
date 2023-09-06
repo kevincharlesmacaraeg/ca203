@@ -17,8 +17,8 @@ const products = [
   { name: 'Photography', description: 'Tour, corporate, events, and studio photography', href: '#', icon: CursorArrowRaysIcon },
   { name: 'Graphic Design', description: 'Corporate designer working with Grammy-Award winning artists and independent artists alike', href: '#', icon: FingerPrintIcon },
   { name: 'Painting', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
+
 const callsToAction = [
   { name: 'Watch MTV Show', href: '#', icon: PlayCircleIcon },
   { name: 'Contact sales', href: '#', icon: PhoneIcon },
@@ -28,8 +28,17 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+function Navbar(props) {
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // function changePage(){
+  //   this.setState({
+  //     currentpage: "home2"
+  //   }, ()=>{console.log("state updated")})
+  // }
+
+  console.log(props)
 
   return (
     <header className="bg-white fixed w-screen z-40">
@@ -37,8 +46,7 @@ export default function Navbar() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-8 w-auto fill-white" src={coreLogo} alt="" />
-            
+            <img className="h-8 w-auto fill-white" onClick={()=>{props.changeToHome("home")}} src={coreLogo} alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -103,13 +111,14 @@ export default function Navbar() {
             </Transition>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-bla font-title hover:text-pink">
+          <a onClick={()=>{props.changeToHome("mtv")}}  className="text-sm font-semibold leading-6 text-bla font-title hover:text-pink">
             On TV
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-bla font-title hover:text-pink">
+          <a onClick={()=>{props.changeToHome("reels")}}  className="text-sm font-semibold leading-6 text-bla font-title hover:text-pink">
             Reels
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-bla font-title hover:text-pink">
+          <a onClick={()=>{props.changeToHome("website")}}  className="text-sm font-semibold leading-6 
+          text-bla font-title hover:text-pink">
             About This Website
           </a>
         </Popover.Group>
@@ -202,3 +211,5 @@ export default function Navbar() {
     </header>
   )
 }
+
+export default Navbar
