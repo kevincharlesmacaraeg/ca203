@@ -45,8 +45,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="">
-        {/* <h1 onClick={()=>this.changePage()} className="fixed m-bottom-0 z-50">{this.state.currentpage} </h1> */}
-
         <Navbar 
           changeToHome={
             (input)=>{
@@ -56,14 +54,12 @@ class App extends React.Component {
           } 
           currentpage={this.state.currentpage}
         />
-
         {this.state.currentpage === "home" ? <Homepage currentpage={this.state.currentpage} /> : null}
-
         {this.state.currentpage === "website" ? <Website currentpage={this.state.currentpage} /> : null}
-
         {this.state.currentpage === "mtv" ? <MTV currentpage={this.state.currentpage} /> : null}
-
         {this.state.currentpage === "reels" ? <Reels currentpage={this.state.currentpage} /> : null}
+
+
       </div>
     );
   }

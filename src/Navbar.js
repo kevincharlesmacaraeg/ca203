@@ -32,21 +32,13 @@ function Navbar(props) {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  // function changePage(){
-  //   this.setState({
-  //     currentpage: "home2"
-  //   }, ()=>{console.log("state updated")})
-  // }
-
-  console.log(props)
-
   return (
     <header className="bg-white fixed w-screen z-40">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-8 w-auto fill-white" onClick={()=>{props.changeToHome("home")}} src={coreLogo} alt="" />
+            <img className="h-8 w-auto fill-white" onClick={() => { props.changeToHome("home") }} src={coreLogo} alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -62,7 +54,7 @@ function Navbar(props) {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-bla font-title hover:text-pink">
-              Design Work
+              Core Skills
               <ChevronDownIcon className="h-5 w-5 flex-none text-bla" aria-hidden="true" />
             </Popover.Button>
 
@@ -111,23 +103,33 @@ function Navbar(props) {
             </Transition>
           </Popover>
 
-          <a onClick={()=>{props.changeToHome("mtv")}}  className="text-sm font-semibold leading-6 text-bla font-title hover:text-pink">
+          {/* <a onClick={() => { props.changeToHome("mtv") }} className="text-sm font-semibold leading-6 text-bla font-title hover:text-pink">
             On TV
           </a>
-          <a onClick={()=>{props.changeToHome("reels")}}  className="text-sm font-semibold leading-6 text-bla font-title hover:text-pink">
+          <a onClick={() => { props.changeToHome("reels") }} className="text-sm font-semibold leading-6 text-bla font-title hover:text-pink">
             Reels
           </a>
-          <a onClick={()=>{props.changeToHome("website")}}  className="text-sm font-semibold leading-6 
+          <a onClick={() => { props.changeToHome("website") }} className="text-sm font-semibold leading-6 
           text-bla font-title hover:text-pink">
             About This Website
-          </a>
+          </a> */}
         </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-bla font-title">
             Contact <span aria-hidden="true">&rarr;</span>
           </a>
-        </div>
+        </div> */}
       </nav>
+
+
+
+
+
+
+
+
+
+
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
