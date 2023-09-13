@@ -2,8 +2,8 @@ import './App.css';
 import ApiCall from "./Apicall.js";
 import Homepage from './Homepage';
 import React from 'react';
-import Banner from './Banner';
-import { Fragment, useState, setState, Component } from 'react'
+import { Route, Switch } from "react-router-dom";
+import { Fragment, useState, setState, useEffect, Component } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
   ArrowPathIcon,
@@ -17,9 +17,7 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import coreLogo from './img/core-logo.svg'
 import Navbar from './Navbar'
-import Website from "./Website"
-import MTV from "./MTV"
-import Reels from "./Reels"
+import { motion, useAnimate, usePresence } from "framer-motion"
 
 // If you're reading this you are so sick and congrats you get to see some of the most beautiful code in the entire world (joking)
 
@@ -28,7 +26,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentpage: "home"
+      currentpage: "home",
+      isMenuOpen: false,
     };
   }
 
@@ -45,21 +44,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="">
-        <Navbar 
+        <Navbar
           changeToHome={
-            (input)=>{
-              console.log("on click app" + input);
-              this.setState({currentpage: input})
+            (input) => {
+              this.setState({ currentpage: input })
             }
-          } 
+          }
           currentpage={this.state.currentpage}
         />
         {this.state.currentpage === "home" ? <Homepage currentpage={this.state.currentpage} /> : null}
-        {this.state.currentpage === "website" ? <Website currentpage={this.state.currentpage} /> : null}
-        {this.state.currentpage === "mtv" ? <MTV currentpage={this.state.currentpage} /> : null}
-        {this.state.currentpage === "reels" ? <Reels currentpage={this.state.currentpage} /> : null}
-
-
+        {/* {this.state.currentpage === "website" ? <Website currentpage={this.state.currentpage} /> : null} */}
       </div>
     );
   }
