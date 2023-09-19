@@ -1,25 +1,27 @@
 import './App.css';
-import ApiCall from "./Apicall.js";
 import Homepage from './Homepage';
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import { Fragment, useState, setState, useEffect, Component } from 'react'
-import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import coreLogo from './img/core-logo.svg'
 import Navbar from './Navbar'
-import { motion, useAnimate, usePresence } from "framer-motion"
+import { AnimatePresence, motion, useAnimate, usePresence } from "framer-motion"
+import Elements from './Elements';
+import Lottie from "lottie-react"
+import lazyload from "./img/lazyload.json"
+
 
 // If you're reading this you are so sick and congrats you get to see some of the most beautiful code in the entire world (joking)
+
+const LottieFlag =() => {
+
+  return(
+    <div className="fixed bottom-5 left-5 h-20 w-20">
+      <Lottie data={lazyload} />
+    </div>
+  )
+}
 
 class App extends React.Component {
 
@@ -52,8 +54,19 @@ class App extends React.Component {
           }
           currentpage={this.state.currentpage}
         />
-        {this.state.currentpage === "home" ? <Homepage currentpage={this.state.currentpage} /> : null}
-        {/* {this.state.currentpage === "website" ? <Website currentpage={this.state.currentpage} /> : null} */}
+        <AnimatePresence>
+          <motion.div exit={{
+            opacity: 0,
+            transition: {
+              duration: 3,
+              delay: .5
+            }
+          }}>
+            {this.state.currentpage === "home" ? <Homepage currentpage={this.state.currentpage} /> : null}
+            {this.state.currentpage === "elements" ? <Elements currentpage={this.state.currentpage} /> : null}
+          </motion.div>
+        </AnimatePresence>
+        <LottieFlag />
       </div>
     );
   }
